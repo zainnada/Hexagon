@@ -97,9 +97,13 @@ The project supports multi-language content:
 
 * This project follows Laravel best practices
 
+---
+
 ## 🏢 About Hexagon
 
 Hexagon is a software company focused on delivering reliable, scalable, and high-quality software solutions tailored to client needs.
+
+---
 
 ## 📄 License
 
