@@ -12,12 +12,13 @@ class Contact_Request extends Model implements TranslatableContract
     use Translatable;
     protected $table = 'contact__requests';
     public $translatedAttributes = ['contact_subject', 'contact_message'];
-    protected $fillable = [
-        'contact_name',
-        'contact_email',
-//        'contact_subject',
-//        'contact_message',
-    ];
+//    protected $fillable = [
+//        'contact_name',
+//        'contact_email',
+//  //        'contact_subject',
+//  //        'contact_message',
+//    ];
 
-    //
+    protected $guarded = [];
+
 }

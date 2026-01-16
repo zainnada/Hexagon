@@ -16,8 +16,15 @@ class Service extends Model implements TranslatableContract
         'service_name',
         'service_description'
     ];
-    protected $fillable = [
-        'service_price',
-    ];
+//    protected $fillable = [
+//        'service_price',
+//    ];
+
+    protected $guarded = [];
+    protected $with = ['translations'];
+
+    public function client(){
+        return $this->belongsTo(Client::class);
+    }
 
 }

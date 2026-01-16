@@ -6,6 +6,7 @@
                 <div class="hero-copy">
                     <h1 class="h1">{{__('services.hero_title')}}</h1>
                     <p class="text-lg mb-32">{{__('services.hero_paragraph')}}</p>
+                    <a class="button" href="/services/create">{{__('services.create')}}</a>
                 </div>
                 <div class="hero-figure anime-element">
                     <svg class="placeholder" width="528" height="396" viewBox="0 0 528 396">
@@ -33,13 +34,17 @@
                 @foreach($services as $service)
                     <div class="feature">
                         <div class="feature-inner text-center">
-                            <a href="/service/{{ $service['id'] }}">
-                                <h3 class="text-lg font-semibold text-white">{{ $service['service_name'] }}</h3>
+                            <a href="/services/{{ $service->id }}">
+                                <h3 class="text-lg font-semibold text-white">{{ $service->service_name }}</h3>
                             </a>
                         </div>
                     </div>
                 @endforeach
             </div>
+{{--            <div>--}}
+{{--                {{ $services->links() }}--}}
+{{--            </div>--}}
+
         </div>
     </section>
     <style>

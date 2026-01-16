@@ -10,4 +10,11 @@ return [
 
     'back' => 'الرجوع',
 
+    'create'=> 'أنشئ خدمة',
+    'edit'=> 'تعديل خدمة',
+    'delete'=> 'حذف',
+
+    'service_description'=> 'وصف الخدمة',
+    'service_title'=> 'عنوان الخدمة',
+    'service_price' => 'سعر الخدمة',
 ];

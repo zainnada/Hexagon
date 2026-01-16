@@ -10,4 +10,13 @@ return [
 
     'back' => 'go back',
 
+    'create'=> 'Create Service',
+    'edit'=> 'Edit Service',
+    'delete'=> 'Delete',
+
+    'service_description'=> 'Service description',
+    'service_title'=> 'Service title',
+    'service_price' => 'Service price',
+
+
 ];

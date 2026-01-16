@@ -5,9 +5,14 @@
         <div class="container">
             <div class="hero-inner">
                 <div class="hero-copy">
-                    <h1 class="h1">{{$service['service_name']??''}} Service</h1>
-                    <p class="text-lg mb-32">{{$service['service_description']??''}}</p>
-                    <p class="text-lg mb-32">{{$service['service_price']??''}}$ USD</p>
+                    <h1 class="h1">{{$service->service_name}} Service</h1>
+                    <p class="text-lg mb-32">{{$service->service_description}}</p>
+                    <p class="text-lg mb-32">{{$service->service_price}}$ USD</p>
+                    <p class="text-lg mb-32">This service was issued for {{$service->client->name}}.</p>
+
+                    @can('edit',$service)
+                        <a class="button" href="/services/{{$service->id}}/edit">{{__('services.edit')}}</a>
+                    @endcan
                 </div>
                 <div class="hero-figure anime-element">
                     <svg class="placeholder" width="528" height="396" viewBox="0 0 528 396">

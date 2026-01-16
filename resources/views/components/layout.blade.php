@@ -78,7 +78,26 @@
                                 <a class="nav-link" href="{{ route('lang.switch', 'ar') }}">AR</a>
                             @endif
                         </li>
-
+                        @guest
+                            <li>
+                                <a href="{{ url('/register') }}"
+                                   class="{{ request()->is('register') ? 'active' : '' }}">
+                                    {{ __('auth.register') }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url('/login') }}"
+                                   class="{{ request()->is('login') ? 'active' : '' }}">
+                                    {{ __('auth.login') }}
+                                </a>
+                            </li>
+                        @endguest
+                        @auth
+                            <form method="POST" action="/logout">
+                                @csrf
+                                <button>{{__('auth.logout')}}</button>
+                            </form>
+                        @endauth
                     </ul>
 
                 </nav>

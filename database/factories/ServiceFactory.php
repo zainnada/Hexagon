@@ -2,8 +2,10 @@
 
 namespace Database\Factories;
 
+use App\Models\Client;
 use App\Models\Service;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Stichoza\GoogleTranslate\GoogleTranslate;
 
 class ServiceFactory extends Factory
 {
@@ -13,6 +15,7 @@ class ServiceFactory extends Factory
     {
         return [
             'service_price' => $this->faker->randomFloat(2, 10, 500),
+            'client_id' => Client::factory(),
         ];
     }
 
@@ -20,14 +23,11 @@ class ServiceFactory extends Factory
     {
         return $this->afterCreating(function (Service $service) {
 
-            $faker_ar = \Faker\Factory::create('ar_SA');
-
             $service->translations()->create([
                 'locale' => 'ar',
-                'service_name' => $faker_ar->jobTitle(),
-                'service_description' => $faker_ar->paragraph,
+                'service_name' => $this->faker->jobTitle(),
+                'service_description' => $this->faker->paragraph,
             ]);
-
 
             $service->translations()->create([
                 'locale' => 'en',
