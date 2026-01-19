@@ -27,36 +27,53 @@
         </div>
     </section>
 
-
     <section class="section-inner">
         <div class="container">
-            <div class="features-wrap grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <h2 class="h2 text-center mb-48">{{ __('services.hero_title') }}</h2>
+            <div class="features-wrap">
                 @foreach($services as $service)
                     <div class="feature">
                         <div class="feature-inner text-center">
-                            <a href="/services/{{ $service->id }}">
-                                <h3 class="text-lg font-semibold text-white">{{ $service->service_name }}</h3>
-                            </a>
+                            <div class="feature-icon mb-24">
+                                <div
+                                    style="width: 64px; height: 64px; background: rgba(2, 112, 215, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 28px; color: #0270D7;">
+                                    {{ strtoupper(substr($service->service_name, 0, 1)) }}
+                                </div>
+                            </div>
+                            <h3 class="h4 mb-24">{{ $service->service_name }}</h3>
+                            <a href="/services/{{ $service->id }}" class="button button-sm">{{__('services.show')}}</a>
                         </div>
                     </div>
                 @endforeach
             </div>
-{{--            <div>--}}
-{{--                {{ $services->links() }}--}}
-{{--            </div>--}}
-
         </div>
     </section>
-    <style>
-        .feature-inner {
-            transition: all 0.1s ease;
-            padding: 32px;
-            border-radius: 8px;
-        }
-        .feature-inner:hover {
-            background: rgba(36, 40, 48, 0.5);
-        }
-    </style>
+<style>
+    .features-wrap {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+        justify-items: center;
+    }
+
+    .feature-inner {
+        padding: 32px;
+        border-radius: 8px;
+        background-color: rgba(36, 40, 48, 0.2);
+        transition: all 0.3s ease;
+    }
+
+    .feature-inner:hover {
+        background: rgba(36, 40, 48, 0.5);
+        transform: translateY(-8px);
+    }
+
+    .feature-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
 
     <!-- Call to Action Section -->
     <section class="cta section">
@@ -70,40 +87,5 @@
             </div>
         </div>
     </section>
-
-    <style>
-        .feature-inner:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
-        }
-
-        .features-wrap {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 32px;
-        }
-    </style>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const features = document.querySelectorAll('.is-revealing');
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1;
-                        entry.target.style.transform = 'translateY(0)';
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {threshold: 0.2});
-
-            features.forEach(feature => {
-                feature.style.opacity = 0;
-                feature.style.transform = 'translateY(20px)';
-                observer.observe(feature);
-            });
-        });
-    </script>
-
 
 </x-layout>

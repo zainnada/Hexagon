@@ -10,6 +10,7 @@ return [
 
     'back' => 'go back',
 
+    'show'=>'Details',
     'create'=> 'Create Service',
     'edit'=> 'Edit Service',
     'delete'=> 'Delete',
